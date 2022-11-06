@@ -20,12 +20,14 @@ def main() -> None:
                         type=int,
                         required=False,
                         default=2,
-                        help="Add entropies with comments[0] | assignments[1] | both[2], default both[2]")
+                        help="Add entropies with comments[0] | assignments[1] | both[2], default both[2]",
+                        metavar='\b')
     parser.add_argument("-l", "--lines",
                         type=int,
                         required=False,
                         default=randint(500,1000),
-                        help="Add entropy lines numbers, default random[500,1000]")
+                        help="Add entropy lines numbers, default random[500,1000]",
+                        metavar='\b')
     args = parser.parse_args()
     file = args.file
     option = args.option
