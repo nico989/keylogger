@@ -1,5 +1,5 @@
 Write entropy program:
-- python code
+- python code --> careful with multiline comments in python and c++
 
 Theory, keylogger based on:
 - hooks-based
