@@ -1,0 +1,27 @@
+Write entropy program:
+- python code
+
+Theory, keylogger based on:
+- hooks-based
+- winAPI Get(Async)KeyState or GetKeyboardState
+- kernel-based
+
+Low level c++ payloads:
+- write payload for windows
+- random variable to change the hash
+
+High level payloads cross platforms (pynput is hook-based SetWindowsHookExA):
+- from python to exe
+
+Obfuscation:
+- base64, hex, bytes, encrypt the payload
+- multi-staged payload
+
+Results:
+- Defender Python: 
+    - payload0: No
+    - payload1: No
+    - payload2: Yes
+    - payload3: No
+    - payload4: Yes
+
