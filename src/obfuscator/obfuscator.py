@@ -3,12 +3,18 @@ import argparse
 from random import randint
 
 
+def loadFile(file: str) -> list:
+    with open(file, mode="r") as tmp:
+        lines = tmp.readlines()
+    return lines
+
+
 def main() -> None:
     '''
     Entry point for the obfuscator.
     Parse input parameters:
         - File: python or c/c++ code
-        - Entropy options: comments | random assignments | both, default both
+        - Entropy options: comments[0] | random assignments[1] | both[2], default both[2]
         - Entropy Lines Number: default random[500,1000]
     '''
     parser = argparse.ArgumentParser(description="Code Obfuscator")
@@ -32,7 +38,8 @@ def main() -> None:
     file = args.file
     option = args.option
     lines = args.lines
-
+    fileLoaded = loadFile(file)
+    print(fileLoaded)
 
 if __name__ == '__main__':
     main()
