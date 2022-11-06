@@ -4,7 +4,13 @@ from random import randint, choice
 from string import ascii_letters, digits
 
 
-def generateRandomWord(minLength:int, maxLength: int) -> str:
+def generateRandomWord(minLength: int, maxLength: int) -> str:
+    '''
+    Generate random word.
+    :param minLength: minimum word length
+    :param maxLength: maximum word length
+    :return: random word
+    '''
     length = randint(minLength, maxLength)
     return ''.join(choice(ascii_letters + digits) for _ in range(length))
 
@@ -12,23 +18,43 @@ def generateRandomWord(minLength:int, maxLength: int) -> str:
 def loadFile(file: str) -> list:
     '''
     Load input file in memory.
+    :param file: source file
+    :return: list of file lines
     '''
     try:
         with open(file, mode="r") as tmp:
             lines = tmp.readlines()
         return lines
-    except FileNotFoundError: 
+    except FileNotFoundError:
         print("File Not Found, please provide a valid Input File.")
         exit(1)
+
 
 def writeFile(file: list) -> None:
     '''
     Write out obfuscated input file.
+    :param file: source file
+    :return: None
     '''
     fileName = f"{generateRandomWord(5, 10)}.py"
     with open(fileName, mode="w") as tmp:
         tmp.writelines(file)
 
+
+def obfuscate(file: list, option: int, lines: int ) -> list:
+    '''
+    Obfuscate the source files.
+    :param file: source file
+    :param option: entropy lines option
+    :param lines: entropy lines to add
+    :return: obfuscated list
+    '''
+    fileLine = len(file)
+    randomLine = randint(0, fileLine)
+    print(randomLine)
+    entropyLine = "#eheihei\n"
+    file.insert(randomLine, entropyLine)
+    return file
 
 def main() -> None:
     '''
@@ -52,21 +78,17 @@ def main() -> None:
     parser.add_argument("-l", "--lines",
                         type=int,
                         required=False,
-                        default=randint(500,1000),
+                        default=randint(500, 1000),
                         help="Add entropy lines numbers, default random[500,1000]",
                         metavar='\b')
     args = parser.parse_args()
     file = args.file
     option = args.option
     lines = args.lines
+
     fileLoaded = loadFile(file)
-    
-    fileLine = len(fileLoaded)
-    randomLine = randint(0, fileLine)
-    print(randomLine)
-    entropyLine = "#eheihei\n"
-    fileLoaded.insert(randomLine, entropyLine)
-    writeFile(fileLoaded)
+    obfFile = obfuscate(fileLoaded, option, lines)
+    writeFile(obfFile)
 
 
 if __name__ == '__main__':
