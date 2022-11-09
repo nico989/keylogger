@@ -1,5 +1,5 @@
 Write entropy program:
-- python code --> careful with multiline comments in python and c++
+- python code --> rearrange code and manage option input parameter and compress multiline comments at the beginning
 
 Theory, keylogger based on:
 - hooks-based
@@ -8,13 +8,12 @@ Theory, keylogger based on:
 
 Low level c++ payloads:
 - write payload for windows
-- random variable to change the hash
 
 High level payloads cross platforms (pynput is hook-based SetWindowsHookExA):
 - from python to exe
 
 Obfuscation:
-- base64, hex, bytes, encrypt the payload
+- change hash, base64, hex, bytes, encryption --> create EXE
 - multi-staged payload
 
 Results:
