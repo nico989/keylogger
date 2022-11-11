@@ -1,5 +1,5 @@
 Write entropy program:
-- python code --> rearrange code and manage option input parameter and compress multiline comments at the beginning
+- python code --> add for loop random
 
 Theory, keylogger based on:
 - hooks-based
