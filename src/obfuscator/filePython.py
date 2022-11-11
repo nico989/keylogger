@@ -2,7 +2,7 @@ from abstractFile import AbstractFile
 
 
 class FilePython(AbstractFile):
-    PYTHON_COMMENT_CHARS = ["#", "\"\"\"", "\"\"\""]
+    PYTHON_COMMENT_CHARS = ["#", "\"\"\""]
 
 
     def __init__(self, fileName: str, option: int, lines: int) -> None:
@@ -44,7 +44,7 @@ class FilePython(AbstractFile):
             return f"{self.PYTHON_COMMENT_CHARS[0]}{randomWord}\n"
         else:
             tabs = self._getTabs(self._randomLine)
-            return f"\t"*tabs + f"{self.PYTHON_COMMENT_CHARS[1]}\n{randomWord}\n{self.PYTHON_COMMENT_CHARS[2]}\n"
+            return f"\t"*tabs + f"{self.PYTHON_COMMENT_CHARS[1]}\n{randomWord}\n{self.PYTHON_COMMENT_CHARS[1]}\n"
 
     
     def _getAssignment(self) -> str:
