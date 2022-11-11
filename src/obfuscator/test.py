@@ -3,11 +3,6 @@
 
 def main() -> None:
 	print("test")
-	# comment
-	'''
-	other
-	comments
-	'''
 	print("hello world")
 
 

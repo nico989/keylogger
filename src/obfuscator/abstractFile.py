@@ -119,7 +119,6 @@ class AbstractFile(ABC):
 		Write out obfuscated input file.
 		:return: None
 		'''
-		print(self._getFileType())
 		fileName = f"{self._generateRandomWord(self.MIN_FILE_LENGTH, self.MAX_FILE_LENGTH)}.{self._getFileType()}"
 		with open(fileName, mode="w") as tmp:
 			tmp.writelines(self._fileLoaded)

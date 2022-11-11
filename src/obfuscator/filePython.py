@@ -14,6 +14,10 @@ class FilePython(AbstractFile):
 
 
     def _getFileType(self) -> str:
+        '''
+		Get Python file type.
+		:return: Python file type
+		'''
         return "py"
 
 

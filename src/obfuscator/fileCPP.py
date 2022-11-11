@@ -14,6 +14,10 @@ class FileCPP(AbstractFile):
 
 
     def _getFileType(self) -> str:
+        '''
+		Get CPP file type.
+		:return: CPP file type
+		'''
         return "cpp"
     
     def _getComment(self) -> str:
