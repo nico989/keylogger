@@ -101,7 +101,50 @@ def getTabs(file: list, position: int):
 	return 0
 
 
-def addCEntropy(file: list, lines:int, commentChars: list) -> list:
+def addCComments(file: list, lines: int, commentChars: list) -> list:
+	'''
+	Add entropy lines in C/C++ file.
+	:param file: source file
+	:param lines: number of lines to add
+	:param commentChars: chars for comments
+	:return: obfuscated file option comments
+	'''
+	for _ in range(lines):
+		fileSize = len(file)
+		randomLine = getRandomInt(0, fileSize)
+		randomWord = generateRandomWord(MIN_WORD_LENGTH, MAX_WORD_LENGTH)
+		if getRandomInt(0, 1) == 0:
+			entropyLine = f"{commentChars[0]}{randomWord}\n"
+		else:
+			entropyLine = f"{commentChars[1]}\n{randomWord}\n{commentChars[2]}\n"
+		file.insert(randomLine, entropyLine)
+	return file
+
+
+def addCAssignments(file: list, lines: int) -> list:
+	'''
+	Add entropy lines in C7C++ file.
+	:param file: source file
+	:param lines: number of lines to add
+	:return: obfuscated file option random assignments
+	'''
+	for _ in range(lines):
+		fileSize = len(file)
+		randomLine = getRandomInt(0, fileSize)
+		randomWord = generateRandomWord(MIN_WORD_LENGTH, MAX_WORD_LENGTH)
+		entropyLine = f"{generateRandomWord(MIN_WORD_LENGTH, MAX_WORD_LENGTH, 1)} = '{randomWord}';\n"
+		file.insert(randomLine, entropyLine)
+	return file
+
+
+def addCBoth(file: list, lines:int, commentChars: list) -> list:
+	'''
+	Add entropy lines in C/C++ file.
+	:param file: source file
+	:param lines: number of lines to add
+	:param commentChars: chars for comments
+	:return: obfuscated file option both
+	'''
 	for _ in range(lines):
 		fileSize = len(file)
 		randomLine = getRandomInt(0, fileSize)
@@ -112,12 +155,57 @@ def addCEntropy(file: list, lines:int, commentChars: list) -> list:
 			else:
 				entropyLine = f"{commentChars[1]}\n{randomWord}\n{commentChars[2]}\n"
 		else:
-			entropyLine = f"{generateRandomWord(MIN_WORD_LENGTH, MAX_WORD_LENGTH, 1)} = '{randomWord}'\n"
+			entropyLine = f"{generateRandomWord(MIN_WORD_LENGTH, MAX_WORD_LENGTH, 1)} = '{randomWord}';\n"
 		file.insert(randomLine, entropyLine)
 	return file
 
 
-def addPythonEntropy(file: list, lines: int, commentChars: list) -> list:
+def addPythonComments(file: list, lines: int, commentChars: list) -> list:
+	'''
+	Add entropy lines in Python file.
+	:param file: source file
+	:param lines: number of lines to add
+	:param commentChars: chars for comments
+	:return: obfuscated file option comments
+	'''
+	for _ in range(lines):
+		fileSize = len(file)
+		randomLine = getRandomInt(0, fileSize)
+		randomWord = generateRandomWord(MIN_WORD_LENGTH, MAX_WORD_LENGTH)
+		if getRandomInt(0, 1) == 0:
+			entropyLine = f"{commentChars[0]}{randomWord}\n"
+		else:
+			tabs = getTabs(file, randomLine)
+			entropyLine = f"\t"*tabs + f"{commentChars[1]}\n{randomWord}\n{commentChars[2]}\n"
+		file.insert(randomLine, entropyLine)
+	return file
+
+
+def addPythonAssignments(file: list, lines: int) -> list:
+	'''
+	Add entropy lines in Python file.
+	:param file: source file
+	:param lines: number of lines to add
+	:return: obfuscated file option random assignments
+	'''
+	for _ in range(lines):
+		fileSize = len(file)
+		randomLine = getRandomInt(0, fileSize)
+		randomWord = generateRandomWord(MIN_WORD_LENGTH, MAX_WORD_LENGTH)
+		tabs = getTabs(file, randomLine)
+		entropyLine = f"\t"*tabs + f"{generateRandomWord(MIN_WORD_LENGTH, MAX_WORD_LENGTH, 1)} = '{randomWord}'\n"
+		file.insert(randomLine, entropyLine)
+	return file
+
+
+def addPythonBoth(file: list, lines: int, commentChars: list) -> list:
+	'''
+	Add entropy lines in Python file.
+	:param file: source file
+	:param lines: number of lines to add
+	:param commentChars: chars for comments
+	:return: obfuscated file option both
+	'''
 	for _ in range(lines):
 		fileSize = len(file)
 		randomLine = getRandomInt(0, fileSize)
@@ -134,6 +222,7 @@ def addPythonEntropy(file: list, lines: int, commentChars: list) -> list:
 		file.insert(randomLine, entropyLine)
 	return file
 
+
 def obfuscate(file: str, option: int, lines: int ) -> int:
 	'''
 	Obfuscate the source file.
@@ -145,9 +234,25 @@ def obfuscate(file: str, option: int, lines: int ) -> int:
 	fileExtension = checkFileExtension(file)
 	fileLoaded = loadFile(file)
 	if fileExtension == 0:
-		obfFile = addPythonEntropy(fileLoaded, lines, PYTHON_COMMENT_CHARS)
+		if option == 0:
+			obfFile = addPythonComments(fileLoaded, lines, PYTHON_COMMENT_CHARS)
+		elif option == 1:
+			obfFile = addPythonAssignments(fileLoaded, lines)
+		elif option == 2:
+			obfFile = addPythonBoth(fileLoaded, lines, PYTHON_COMMENT_CHARS)
+		else:
+			print("Invalid option! Terminating...")
+			exit(1)
 	elif fileExtension == 1:
-		obfFile = addCEntropy(fileLoaded, lines, C_COMMENT_CHARS)
+		if option == 0:
+			obfFile = addCComments(fileLoaded, lines, C_COMMENT_CHARS)
+		elif option == 1:
+			obfFile = addCAssignments(fileLoaded, lines)
+		elif option == 2:
+			obfFile = addCBoth(fileLoaded, lines, C_COMMENT_CHARS)
+		else:
+			print("Invalid option! Terminating...")
+			exit(1)
 	else:
 		print("File format not valid! Terminating...")
 		exit(1)
