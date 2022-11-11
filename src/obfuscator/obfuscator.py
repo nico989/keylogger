@@ -32,7 +32,7 @@ def generateRandomWord(minLength: int, maxLength: int, option: int = 0) -> str:
 	Generate random word.
 	:param minLength: minimum word length
 	:param maxLength: maximum word length
-	:param option: chars+digits [0] | chars[1], default chars+digits [0]
+	:param option: chars+digits[0] | chars[1], default chars+digits[0]
 	:return: random word
 	'''
 	length = getRandomInt(minLength, maxLength)
@@ -86,7 +86,7 @@ def checkFileExtension(file: str) -> int:
 		return -1
 
 
-def getTabs(file: list, position: int):
+def getTabs(file: list, position: int) -> int:
 	'''
 	Get tabs in Python file.
 	:param file: source file
