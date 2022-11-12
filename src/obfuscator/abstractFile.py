@@ -22,7 +22,7 @@ class AbstractFile(ABC):
 		self._lines = lines
 		self._fileLoaded = self._loadFile()
 		self._fileType = ""
-		self._randomLine = ""
+		self._randomLine = -1
 
 
 	@staticmethod
