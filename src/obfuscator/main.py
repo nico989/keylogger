@@ -9,7 +9,7 @@ def main() -> None:
 	'''
 	Entry point for the obfuscator.
 	Parse input parameters:
-		- File: python or c/c++ code
+		- File: python or c++ code
 		- Entropy options: comments[0] | random assignments[1] | both[2], default both[2]
 		- Entropy Lines Number: default random[500,1000]
 	'''
@@ -38,7 +38,7 @@ def main() -> None:
 	extension = file.split(".")[-1]
 	if extension == "py":
 		srcFile = FilePython(file, option, lines)
-	elif extension == "cpp" or  extension == "c":
+	elif extension == "cpp":
 		srcFile = FileCPP(file, option, lines)
 	else:
 		print("File format not valid! Terminating...")
