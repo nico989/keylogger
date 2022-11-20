@@ -29,7 +29,6 @@ int main()
         MSG msg = {};
         while (GetMessageA(&msg, NULL, 0, 0) > 0)
         {
-            std::cout << msg.message << std::endl;
             TranslateMessage(&msg);
             DispatchMessageA(&msg);
         }
