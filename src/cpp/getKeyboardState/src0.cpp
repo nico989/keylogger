@@ -11,6 +11,7 @@ int main()
     BYTE tmp[256];
     while (true)
     {
+        Sleep(15);
         std::copy(std::begin(state), std::end(state), std::begin(tmp));
         GetKeyState(0);
         GetKeyboardState(state);

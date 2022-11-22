@@ -13,6 +13,7 @@ int main()
     std::string tmp; 
     while (true)
     {
+        Sleep(15);
         std::copy(std::begin(state), std::end(state), std::begin(tmpState));
         GetKeyState(0);
         GetKeyboardState(state);

