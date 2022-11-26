@@ -58,22 +58,7 @@ class FileCPP(AbstractFile):
 		for index in range(len(self._fileLoaded) - 1, -1, -1):
 			if "#include" in self._fileLoaded[index]:
 				return index
-		return -1 
-
-
-	def _fixMain(self) -> None:
-		'''
-		Syntax fix for main in C++.
-		:return: None
-		'''
-		posMain = -1
-		for index, line in enumerate(self._fileLoaded):
-			if "main" in line:
-				posMain = index
-			if "{" in line:
-				self._fileLoaded.remove(line)
-				break
-		self._fileLoaded.insert(posMain + 1, "{\n")
+		return -1
 
 	def obfuscate(self) -> None:
 		'''
@@ -96,6 +81,5 @@ class FileCPP(AbstractFile):
 			else:
 				print("Invalid option! Terminating...")
 				exit(1)
-		self._fixMain()
 		self._writeFile()
 		
