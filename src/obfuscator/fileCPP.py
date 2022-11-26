@@ -43,10 +43,18 @@ class FileCPP(AbstractFile):
 
 
 	def _checkInclude(self) -> bool:
+		'''
+		Check if string is already in the input file.
+		:return: True if string is already in the input file, else Flase
+		'''
 		return "#include <string>\n" in self._fileLoaded
 	
 
 	def _getLastInclude(self) -> int:
+		'''
+		Get last include in the input file.
+		:return: index of last include
+		'''
 		for index in range(len(self._fileLoaded) - 1, -1, -1):
 			if "#include" in self._fileLoaded[index]:
 				return index
@@ -54,6 +62,10 @@ class FileCPP(AbstractFile):
 
 
 	def _fixMain(self) -> None:
+		'''
+		Syntax fix for main in C++.
+		:return: None
+		'''
 		posMain = -1
 		for index, line in enumerate(self._fileLoaded):
 			if "main" in line:
