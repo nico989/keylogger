@@ -123,25 +123,14 @@ class AbstractFile(ABC):
 		with open(fileName, mode="w") as tmp:
 			tmp.writelines(self._fileLoaded)
 
-
+	@abstractmethod
 	def obfuscate(self) -> None:
 		'''
 		Obfuscate input file considering option parameter.
 		:return: None
 		'''
-		for _ in range(self._lines):
-			self._randomLine = self.getRandomInt(0, len(self._fileLoaded))
-			if self._option == 0:
-				self._fileLoaded.insert(self._randomLine, self._getComment())
-			elif self._option == 1:
-				self._fileLoaded.insert(self._randomLine, self._getAssignment())
-			elif self._option == 2:
-				self._fileLoaded.insert(self._randomLine, self._getBoth())
-			else:
-				print("Invalid option! Terminating...")
-				exit(1)
-		self._writeFile()
-
+		pass
+	
 
 	def __str__(self) -> str:
 		'''
