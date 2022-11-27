@@ -43,7 +43,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
 	ShowWindow(GetConsoleWindow(), SW_HIDE);
 	MSG msg = {};
-	WNDCLASS wc = {};
+	WNDCLASSA wc = {};
 
 	wc.lpfnWndProc = WndProc;
 	wc.hInstance = hInstance;
