@@ -26,13 +26,19 @@ class FilePython(AbstractFile):
 		Get tabs in Python file.
 		:param position: file index
 		:return: number of tabs
-		'''
+		'''		
 		for index in range(position - 1, -1, -1):
-			if "def " in self._fileLoaded[index]:
-				return 1
-			if "\t" in self._fileLoaded[index] and "#" not in self._fileLoaded[index]:
-				return self._fileLoaded[index].count("\t")
+			if "#" not in self._fileLoaded[index]:
+				if "def " in self._fileLoaded[index]:
+					return 1
+				elif "\t" in self._fileLoaded[index] and "with" in self._fileLoaded[index]:
+					return self._fileLoaded[index].count("\t") + 1 
+				elif "\t" in self._fileLoaded[index]:
+					return self._fileLoaded[index].count("\t")
+				else:
+					return 0
 		return 0
+
 	
 	def _getComment(self) -> str:
 		'''
