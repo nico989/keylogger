@@ -133,3 +133,6 @@ dmypy.json
 
 # Executables
 *.exe
+
+# Test folder
+test/
