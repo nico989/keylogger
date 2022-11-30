@@ -10,15 +10,15 @@ std::fstream f;
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
 	switch (message) {
-	case WM_CREATE:
+	case WM_CREATE: {
 		rid.dwFlags = RIDEV_NOLEGACY | RIDEV_INPUTSINK | RIDEV_NOHOTKEYS;
 		rid.usUsagePage = 1;
 		rid.usUsage = 6;
 		rid.hwndTarget = hWnd;
 		RegisterRawInputDevices(&rid, 1, sizeof(rid));
-		break;
+		}break;
 
-	case WM_INPUT:
+	case WM_INPUT: {
 		if (GetRawInputData((HRAWINPUT)lParam, RID_INPUT, NULL, &dwSize, sizeof(RAWINPUTHEADER)) == 0) {
 			d = new RAWINPUT[dwSize];
 			if (GetRawInputData((HRAWINPUT)lParam, RID_INPUT, d, &dwSize, sizeof(RAWINPUTHEADER)) == dwSize) {
@@ -32,10 +32,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 			}
 			delete[] d;
 		}
-		break;
+		}break;
 
-	default:
-		return DefWindowProcA(hWnd, message, wParam, lParam);
+	default:{
+			return DefWindowProcA(hWnd, message, wParam, lParam);
+		}break;
 	}
 	return 0;
 }
