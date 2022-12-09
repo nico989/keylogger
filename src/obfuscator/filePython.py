@@ -1,3 +1,4 @@
+from re import search
 from abstractFile import AbstractFile
 
 
@@ -29,14 +30,10 @@ class FilePython(AbstractFile):
 		'''		
 		for index in range(position - 1, -1, -1):
 			if "#" not in self._fileLoaded[index]:
-				if "def " in self._fileLoaded[index]:
-					return 1
-				elif "\t" in self._fileLoaded[index] and "with" in self._fileLoaded[index]:
-					return self._fileLoaded[index].count("\t") + 1 
-				elif "\t" in self._fileLoaded[index]:
-					return self._fileLoaded[index].count("\t")
+				if search(r"def |if |else:|try:|except|with ", self._fileLoaded[index]):
+					return self._fileLoaded[index].count("\t") + 1
 				else:
-					return 0
+					return self._fileLoaded[index].count("\t")
 		return 0
 
 	
