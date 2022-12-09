@@ -1,5 +1,5 @@
 # Keylogging
-The repo contains 3 folders under the src folder.
+The repo contains 3 folders under the src.
 
 ## Loaders
 Different variants to run the Python keylogger located in src/payload/python.
