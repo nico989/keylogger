@@ -9,4 +9,3 @@ try:
 	exec(XVHbvMz3ko8GbMJMWNuIeAgdDwr7JjLrobMdFNcObPvSRTCFUQwnOtcUHFlm8ZKAt2LVJFKeyQYN3PUAIDuhcFi6U4tZ21p7Ijx)
 except:
 	pass
-	
