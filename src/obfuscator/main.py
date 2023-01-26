@@ -17,7 +17,8 @@ def main() -> None:
 	parser.add_argument("-f", "--file",
 						type=str,
 						required=True,
-						help="File to obfuscate")
+						help="File to obfuscate",
+						metavar='\b')
 	parser.add_argument("-o", "--option",
 						type=int,
 						required=False,

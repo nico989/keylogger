@@ -9,17 +9,17 @@ Each loader uses the Python exec() function.
 Custom Python program used to obfuscate any payload in the src/payload folder.
 To check the usage:
 
-```bash
+```
 $ python main.py -h
 usage: main.py [-h] -f FILE [-o] [-l]
 
 Code Obfuscator
 
 optional arguments:
-  -h, --help            show this help message and exit
-  -f FILE, --file FILE  File to obfuscate
-  -o, --option      Add entropies with comments[0] | assignments[1] | both[2], default both[2]
-  -l, --lines       Add entropy lines numbers, default random[500,1000]
+  -h, --help        show this help message and exit
+  -f, --file    File to obfuscate
+  -o, --option  Add entropies with comments[0] | assignments[1] | both[2], default both[2]
+  -l, --lines   Add entropy lines numbers, default random[500,1000]
 ```
 
 ## Payloads
